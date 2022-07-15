@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='ehefluxes',
-    url='https://github.com/clark2688/ehe_fluxes',
+    url='https://github.com/clark2688/ehefluxes',
     author='Brian Clark',
     author_email='baclark@msu.edu',
     packages=['ehe_fluxes'],
