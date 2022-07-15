@@ -80,16 +80,62 @@ class EHEFlux:
         self.flux_splines = splines
 
     def __call__(self, energies, which_species="sum"):
+        '''
+        A function to get flux values at a given energy.
+
+        Do this by evaluating the splines (stored in memory) at these energies.
+
+        Parameters
+        ----------
+        energies: list or numpy.ndarray
+            A list or numpy.ndarray of energies at which
+            the user would like to calculate the flux.
+            Units of GeV.
+
+        which_species: str or list or numpy.ndarray
+            A keyword argument indicating which species of neutrino
+            should be included at each energy bin.
+
+            If which_species = "sum", the function will caculate
+            the summed (not average!!) flux over all species.
+            So total_flux = nue + nuebar + numu + numubar + nutau + nutaubar.
+
+            If which_species = "SOMESPECIES", the function will calculate
+            the flux for that species only.
+            So if which_species = "nutau", then the function will only
+            return the nutau component of the flux.
+            E.g. total_flux = nutau.
+
+            If which_species is a list or numpy.ndarray,
+            the user can specify the species of neutrino *per energy bin*.
+            So, which_species = ["nue", "numu", "nutau", ...]
+            will calculate the nue component only for the first entry,
+            the numu component only for the second entry, and so on.
+            "sum" is not supported when using the function in array mode.
+
+        Returns
+        -------
+        total_flux: numpy.ndarray
+            An array containing the flux values at the energy bins.
+            Units of 1/GeV/cm/s/sr.
+
+
+        '''
 
         species_in_sum = []
         species_mask = {}
+
+        # if necessary, convert energies to numpy array
+        if isinstance(energies, list):
+            energies = np.asarray(energies)
+
+        # make holder array for final flux of same length as input energies
         total_flux = np.zeros(energies.shape)
 
         if isinstance(which_species, str):
             assert which_species in species or which_species == "sum", \
                 f"Requested species {which_species} is not supported."
 
-            # mask = np.full(energies.shape, False)
             mask = np.ones_like(energies)
 
             if which_species == "sum":
@@ -105,19 +151,21 @@ class EHEFlux:
         elif isinstance(which_species, list) \
                 or isinstance(which_species, np.ndarray):
 
+            assert len(energies) == len(which_species), \
+                "Length of energy array does not match length of species array"
+
             if isinstance(which_species, list):
                 # cast this as an array for our user
                 which_species = np.asarray(which_species)
 
             for s in species:
                 species_in_sum.append(s)
-                mask = (which_species == s)
-                mask = mask.astype(float)
+                mask = (which_species == s).astype(float)
                 species_mask[s] = mask
 
         log_e_in = np.log10(energies)  # get energies in log10(E)
 
-        # now, sum over all fluxes, applying mask where necessary
+        # sum over all fluxes, applying mask where necessary
         for s in species_in_sum:
 
             # evaluate the spline
