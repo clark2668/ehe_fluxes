@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='ehe_fluxes',
+    name='ehefluxes',
     url='https://github.com/clark2688/ehe_fluxes',
     author='Brian Clark',
     author_email='baclark@msu.edu',
