@@ -6,7 +6,7 @@ setup(
     author='Brian Clark',
     author_email='baclark@msu.edu',
     packages=['ehefluxes'],
-    python_requires = '>= 3.7',
+    python_requires='>= 3.7',
     install_requires=['numpy', 'scipy'],
     version='0.1',
     license='MIT',
