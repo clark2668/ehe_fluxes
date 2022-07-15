@@ -37,7 +37,7 @@ class EHEFlux:
         file_content = np.genfromtxt(file, comments="#", delimiter=",",
                                      names=True, encoding='utf-16')
         self.make_flux_splines(file_content)
-        
+
     def make_flux_splines(self, file_content):
         '''
         A function to interpolate the flux values
