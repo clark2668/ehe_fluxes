@@ -54,8 +54,8 @@ The first column should specify the neutrino energy in GeV.
 The next six columns should give the per-species neutrino fluxes
 in units of 1/GeV/cm2/s/sr (see units discussion above).
 
-The first line should specify the column headers, all lower case.
-E.g.
+The first line should specify the column headers, all lower case. E.g.
+
     enu, nue, nuebar, numu, numubar, nutau, nutaubar
 
 The order of the flux columns does not matter.
