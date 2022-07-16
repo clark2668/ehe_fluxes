@@ -27,6 +27,24 @@ specific target directory:
 
 If doing the latter, remember to update your PYTHONPATH.
 
+## Usage
+
+Usage is quite straightforward:
+```python
+from ehefluxes import fluxes
+import numpy
+model = fluxes.EHEFlux('ahlers_gzk')
+energies = numpy.logspace(5, 12, 50)
+flux = model(energies, "sum")
+```
+
+Energies are in GeV, fluxes in 1/cm2/s/sr.
+See below for additional discussion on units.
+
+The second argument to the function call can request the 
+sum over all neutrino species (`sum`), a single flavor (e.g. `nue`),
+or can specify a species per energy bin.
+See function docs for mor information.
 
 ### Prerequisites
 
