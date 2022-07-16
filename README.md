@@ -2,6 +2,9 @@
 A small package for providing ehe fluxes
 
 ehefluxes is a lightweight python3-based package for calculating EHE/UHE ("extremely high energy"/"ultra high energy" ) diffuse neutrino fluxes.
+"Extremely/ultra" high generally means >10 PeV.
+Because the fluxes are diffuse, only energy dependence is supported
+(no zenith dependence).
 
 ## Installation
 
