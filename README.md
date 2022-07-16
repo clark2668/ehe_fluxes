@@ -6,6 +6,7 @@ ehefluxes is a lightweight python3-based package for calculating EHE/UHE ("extre
 Because the fluxes are diffuse, only energy dependence is supported
 (no zenith dependence).
 
+
 ## Installation
 
 Installation of ehefluxes is easy with pip:
@@ -27,6 +28,12 @@ specific target directory:
 
 If doing the latter, remember to update your PYTHONPATH.
 
+### Prerequisites
+
+`ehefluxes` is dependency light, requiring numpy, scipy, and matplotlib.
+Python >=3.7 (for manging fluxes through importlib).
+
+
 ## Usage
 
 Usage is quite straightforward:
@@ -46,10 +53,6 @@ sum over all neutrino species (`sum`), a single flavor (e.g. `nue`),
 or can specify a species per energy bin.
 See function docs for mor information.
 
-### Prerequisites
-
-`ehefluxes` is dependency light, requiring numpy, scipy, and matplotlib.
-Python >=3.7 (for manging fluxes through importlib).
 
 ## Fluxes & Units
 
