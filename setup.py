@@ -6,6 +6,8 @@ setup(
     author='Brian Clark',
     author_email='baclark@msu.edu',
     packages=['ehefluxes'],
+    package_data = {'ehefluxes': ['data/*']},
+    include_package_data=True,
     python_requires='>= 3.7',
     install_requires=['numpy', 'scipy', 'matplotlib'],
     version='0.1',
