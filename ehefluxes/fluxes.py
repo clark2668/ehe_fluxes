@@ -5,6 +5,11 @@ import importlib.resources as pkg_resources
 from . import data
 
 species = ['nue', 'nuebar', 'numu', 'numubar', 'nutau', 'nutaubar']
+flavor_sums = {
+    'nue_sum': ['nue', 'nuebar'], 
+    'numu_sum': ['numu', 'numubar'],
+    'nutau_sum': ['nutau', 'nutaubar']
+    }
 
 
 class EHEFlux:
@@ -100,6 +105,11 @@ class EHEFlux:
             the summed (not average!!) flux over all species.
             So total_flux = nue + nuebar + numu + numubar + nutau + nutaubar.
 
+            Which species can also be used to specify flavor sums.
+            So, for example, if which_species = "nue_sum", the function
+            will calculate the summed (not average!) flux over both nue
+            and nuebar. So total_flux = nue + nuebar.
+
             If which_species = "SOMESPECIES", the function will calculate
             the flux for that species only.
             So if which_species = "nutau", then the function will only
@@ -133,7 +143,7 @@ class EHEFlux:
         total_flux = np.zeros(energies.shape)
 
         if isinstance(which_species, str):
-            assert which_species in species or which_species == "sum", \
+            assert which_species in species or which_species == "sum" or which_species in flavor_sums, \
                 f"Requested species {which_species} is not supported."
 
             mask = np.ones_like(energies)
@@ -141,6 +151,10 @@ class EHEFlux:
             if which_species == "sum":
                 # sum over all species
                 for s in species:
+                    species_in_sum.append(s)
+                    species_mask[s] = mask
+            elif which_species in flavor_sums:
+                for s in flavor_sums[which_species]:
                     species_in_sum.append(s)
                     species_mask[s] = mask
             else:

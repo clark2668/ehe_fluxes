@@ -7,6 +7,7 @@ myflux = fluxes.EHEFlux("ahlers_gzk")
 energies = np.logspace(5, 12, 50)
 
 flux_sum = myflux(energies, "sum")  # all flavor
+flux_nuesum = myflux(energies, "nue_sum")  # just nue (2/6th of the all flavor)
 flux_nue = myflux(energies, "nue")  # just nue (1/6th of the all flavor)
 
 # we can also assign each event its own flavor
@@ -17,6 +18,7 @@ flux_nue = myflux(energies, "nue")  # just nue (1/6th of the all flavor)
 fig, ax = plt.subplots(1, 1)
 # plot GeV/cm^2/s/sr (for comparison sake)
 ax.plot(energies, flux_sum*energies*energies, label="All-Species Sum")
+ax.plot(energies, flux_nuesum*energies*energies, label="Nue+Nuebar Only")
 ax.plot(energies, flux_nue*energies*energies, label="Nue Only")
 ax.set_xscale('log')
 ax.set_yscale('log')
