@@ -45,7 +45,7 @@ energies = numpy.logspace(5, 12, 50)
 flux = model(energies, "sum")
 ```
 
-Energies are in GeV, fluxes in 1/cm2/s/sr.
+Energies are in GeV, fluxes in 1/GeV/cm2/s/sr.
 See below for additional discussion on units.
 
 The second argument to the function call can request the 
@@ -58,13 +58,10 @@ See function docs for mor information.
 
 Manging units in neutrino flux measurements is always challenging.
 In this package, the base unit of energy is GeV.
-The code returns fluxes in *particle flux*, meaning 1/cm2/s/sr.
-This is often most convenient for weighting Monte Carlo generated events.
-This corresponds to the EF, or "energy times flux normalization".
-A user can generate the E^2F, or "e-squared normalization" by multiplying
-by a copy of energy. 
+The code stores the splines, and returns fluxes, in units of 1/GeV/cm2/s/sr.
+This means the user only ever has to multiply by copies of energy to get 
+particle flux or e-squared (energy) normalizations.
 
-Internally, the code stores and splines fluxes in units of 1/GeV/cm2/s/sr.
 
 ### Adding your Own Fluxes
 

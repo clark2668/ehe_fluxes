@@ -172,9 +172,8 @@ class EHEFlux:
             this_spline = self.flux_splines[s](log_e_in)
 
             # convert the evaluated spline into a flux
-            # by raising it to power 10, and multiplying by energy
-            # so the final units are 1/cm^2/s/sr
-            this_flux = np.power(10., this_spline) * energies
+            # by raising it to power 10
+            this_flux = np.power(10., this_spline)
 
             # get the mask for this species
             mask = species_mask[s]
