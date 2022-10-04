@@ -2,7 +2,7 @@ from ehefluxes import fluxes
 import matplotlib.pyplot as plt
 import numpy as np
 
-myflux = fluxes.EHEFlux("cosmogenic_ahlers_1E18")
+myflux = fluxes.EHEFlux("cosmogenic_ahlers2010_1E18")
 
 energies = np.logspace(5, 12, 50)
 

@@ -1,5 +1,9 @@
 enu,nue,nuebar,numu,numubar,nutau,nutaubar
 # Energy in GeV, Fluxes in 1/GeV/cm/s/sr
+# From "GZK Neutrinos after the Fermi-LAT Diffuse Photon Flux Measurement"
+# M. Ahlers, et al, Astropart. Phys. 34 (2010) 106-115
+# https://doi.org/10.1016/j.astropartphys.2010.06.003, https://arxiv.org/abs/1005.2620
+# Fig 4, Emin = 1E18.5 (lower left panel)
 6.796E+05,3.894E-24,3.894E-24,3.894E-24,3.894E-24,3.894E-24,3.894E-24
 7.611E+05,3.572E-24,3.572E-24,3.572E-24,3.572E-24,3.572E-24,3.572E-24
 8.272E+05,3.429E-24,3.429E-24,3.429E-24,3.429E-24,3.429E-24,3.429E-24
