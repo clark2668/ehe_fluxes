@@ -2,7 +2,7 @@ from ehefluxes import fluxes
 import matplotlib.pyplot as plt
 import numpy as np
 
-myflux = fluxes.EHEFlux("ahlers_gzk")
+myflux = fluxes.EHEFlux("cosmogenic_ahlers_1E18")
 
 energies = np.logspace(5, 12, 50)
 
@@ -24,6 +24,8 @@ ax.set_xscale('log')
 ax.set_yscale('log')
 ax.set_ylabel(r'Flux [GeV/cm$^2$/s/sr]')
 ax.set_xlabel(r'E$_{\nu}$ [GeV]')
+ax.set_xlim([0.01, 1E12])
+ax.set_ylim([1E-11, 1E-5])
 ax.legend()
 fig.tight_layout()
 fig.savefig('flux_vs_e.png')
