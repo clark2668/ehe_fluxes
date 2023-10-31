@@ -4,7 +4,7 @@ setup(
     name='ehefluxes',
     url='https://github.com/clark2688/ehefluxes',
     author='Brian Clark',
-    author_email='baclark@msu.edu',
+    author_email='baclark@umd.edu',
     packages=['ehefluxes'],
     package_data = {'ehefluxes': ['data/*']},
     include_package_data=True,
