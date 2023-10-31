@@ -1,7 +1,7 @@
 enu,nue,nuebar,numu,numubar,nutau,nutaubar
 # Energy in GeV, Fluxes in 1/GeV/cm/s/sr
 # From "Minimal Cosmogenic Neutrinos"
-# M. Ahlers, et al, Phys Rev D (2012) 86 083010
+# M. Ahlers, et al, Phys Rev D (2010) 86 083010
 # https://journals.aps.org/prd/abstract/10.1103/PhysRevD.86.083010, https://arxiv.org/abs/1208.4181
 # Fig 1, solid red line
 3.233E+05,1.408E-24,1.408E-24,1.408E-24,1.408E-24,1.408E-24,1.408E-24
