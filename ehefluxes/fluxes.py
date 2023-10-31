@@ -1,6 +1,7 @@
 from scipy import interpolate
 import numpy as np
 import importlib.resources as pkg_resources
+import warnings
 
 from . import data
 
@@ -41,6 +42,11 @@ class EHEFlux:
         file = pkg_resources.open_text(data, f"{flux_name}.csv")
         file_content = np.genfromtxt(file, comments="#", delimiter=",",
                                      names=True, encoding="utf-16")
+        if 'enu' not in file_content.dtype.names:
+            raise Exception("Neutrino energy (enu) column is missing in data file. "
+                            "A formatting error in the flux source file is likely. "
+                            "Did you accidentally encode it in a funny way (e.g. utf-8) ? "
+                            )
         self.make_flux_splines(file_content)
 
     def make_flux_splines(self, file_content):
