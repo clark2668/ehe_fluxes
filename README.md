@@ -92,3 +92,7 @@ If the flux of interest *is* equipartition (equal distribution
 between flavors and nu/nubar) the user must still provide six columns.
 In such a case, the user would divide the total flux by 1/6th,
 and use those identical values in each column.
+
+As a warning: if you are exporting your fluxes from Excel, when you call
+File -> Save As, scroll down to "Comma Separated Value (.csv)".
+You should *skip* the first option, which reads "CSV UTF-8 (Comma delimited) (.csv)".
